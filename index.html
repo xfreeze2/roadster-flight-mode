@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#000">
+<title>Roadster: Flight Mode</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<canvas id="c"></canvas>
+<div id="hud" class="hidden">
+  <div class="hud-tl"><div class="trim" id="trim">PERFORMANCE</div><div class="spd"><span id="spd">0</span><small>MPH</small></div><div class="lvlobj" id="obj"></div></div>
+  <div class="hud-tr"><div class="score" id="score">0</div><div class="sub"><span id="time">0.0</span>s &nbsp;·&nbsp; <span id="prog">0</span>%</div></div>
+  <div class="tele">
+    <div><label>DOWNFORCE</label><b id="df">0</b><i>KG</i></div>
+    <div><label>PITCH</label><b id="pitch">0</b><i>DEG</i></div>
+    <div><label>ALTITUDE</label><b id="alt">0.0</b><i>FT</i></div>
+    <div class="gas"><label>GAS PRESSURE</label><div class="bar"><span id="gas"></span></div></div>
+  </div>
+  <div id="toast"></div>
+  <button id="pauseBtn" aria-label="pause">II</button>
+</div>
+<div id="touch" class="hidden">
+  <div class="pad l"><button data-k="left">◀</button><button data-k="right">▶</button></div>
+  <div class="pad r">
+    <button data-k="rotL" class="sm">⟲</button><button data-k="rotR" class="sm">⟳</button>
+    <button data-k="up">THRUST</button><button data-k="drift" id="tDrift">DRIFT</button><button data-k="act" id="tAct" class="hot">SUCTION</button>
+  </div>
+</div>
+<div id="title" class="screen">
+  <div class="kicker">TESLA · OCT 16 2026 · UNVEILED</div>
+  <h1 class="logo">ROADSTER</h1>
+  <div class="tag">FLIGHT MODE</div>
+  <div class="lightbar"></div>
+  <div class="levels">
+    <button data-l="0"><b>01</b><span>PERFORMANCE</span><em>Road ready · drift + suction loop</em></button>
+    <button data-l="1"><b>02</b><span>THRUST</span><em>Race ready · kickflip the Semis</em></button>
+    <button data-l="2"><b>03</b><span>ROCKET</span><em>Air ready · fly over traffic</em></button>
+  </div>
+  <div class="help">→ drive · ← brake · ↑ thrusters · Q/E rotate · SPACE action · SHIFT drift · B boost<br><span>Tap a trim to start. Landscape recommended on phones.</span></div>
+</div>
+<div id="result" class="screen hidden">
+  <div class="kicker" id="rKick">LEVEL COMPLETE</div>
+  <h2 id="rTitle">PERFORMANCE</h2>
+  <div class="rscore" id="rScore">0</div>
+  <p id="rLine"></p>
+  <div class="row"><button id="rRetry">RETRY</button><button id="rNext" class="hot">NEXT</button><button id="rMenu">MENU</button></div>
+</div>
+<script src="game.js"></script>
+</body></html>

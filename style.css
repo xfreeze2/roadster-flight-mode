@@ -1,0 +1,53 @@
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+html,body{height:100%;background:#000;overflow:hidden;color:#eee;font-family:Inter,system-ui,sans-serif;touch-action:none}
+canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
+.hidden{display:none!important}
+.logo,.tag,.kicker,#hud,button,h2,.rscore{font-family:Orbitron,"Eurostile","Arial Black",sans-serif}
+.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4vh 4vw;
+ background:radial-gradient(ellipse at 50% 40%,rgba(30,30,36,.55),rgba(0,0,0,.92) 70%)}
+#title{background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.25) 45%,rgba(0,0,0,.85))}
+.kicker{letter-spacing:.5em;font-size:clamp(9px,1.4vw,13px);color:#9a9aa3;margin-bottom:1.2vh}
+.logo{font-weight:900;font-style:italic;font-size:clamp(44px,11vw,150px);letter-spacing:.08em;line-height:1;transform:skewX(-14deg) scaleX(1.25);
+ background:linear-gradient(180deg,#fff7e0 0%,#e9d39a 38%,#a8854a 55%,#f3e2b5 75%,#8a6a35 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+ filter:drop-shadow(0 0 18px rgba(233,200,130,.25))}
+.tag{letter-spacing:1.1em;font-size:clamp(11px,2vw,20px);color:#ddd;margin:1.6vh 0 0 1.1em}
+.lightbar{width:min(70vw,640px);height:6px;border-radius:6px;margin:2.4vh 0 3vh;background:linear-gradient(90deg,transparent,#ff1a2b 12%,#ff4050 50%,#ff1a2b 88%,transparent);
+ box-shadow:0 0 20px #ff1a2b,0 0 60px rgba(255,20,40,.6);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.6;box-shadow:0 0 10px #ff1a2b}}
+.levels{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.levels button{width:min(240px,28vw);min-width:150px;padding:14px 14px 12px;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:14px;color:#fff;cursor:pointer;
+ backdrop-filter:blur(10px);transition:.2s}
+.levels button:hover,.levels button:focus{border-color:#e9d39a;background:rgba(233,211,154,.08);transform:translateY(-2px)}
+.levels b{display:block;color:#e9d39a;font-size:12px;letter-spacing:.2em}
+.levels span{display:block;font-size:clamp(13px,1.8vw,18px);font-weight:800;letter-spacing:.12em;margin:6px 0}
+.levels em{font-family:Inter,sans-serif;font-style:normal;font-size:11px;color:#9a9aa3}
+.help{margin-top:3vh;font-size:12px;color:#8a8a92;line-height:1.8}.help span{color:#666}
+#hud{position:fixed;inset:0;pointer-events:none;color:#fff}
+.hud-tl{position:absolute;left:max(16px,env(safe-area-inset-left));top:14px}
+.trim{font-size:11px;letter-spacing:.4em;color:#e9d39a}
+.spd{font-size:clamp(30px,5vw,48px);font-weight:800;font-style:italic}.spd small{font-size:12px;margin-left:6px;color:#999;font-style:normal}
+.lvlobj{font-size:10px;letter-spacing:.15em;color:#999;max-width:46vw}
+.hud-tr{position:absolute;right:max(16px,env(safe-area-inset-right));top:14px;text-align:right}
+.score{font-size:clamp(24px,4vw,40px);font-weight:900;color:#fff}.sub{font-size:11px;color:#999;letter-spacing:.15em}
+.tele{position:absolute;left:50%;top:14px;transform:translateX(-50%);display:flex;gap:2px;background:rgba(10,10,14,.55);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px 6px;backdrop-filter:blur(8px)}
+.tele>div{padding:0 10px;text-align:center;min-width:72px;border-right:1px solid rgba(255,255,255,.08)}.tele>div:last-child{border:0}
+.tele label{display:block;font-size:8px;letter-spacing:.25em;color:#8a8a92}
+.tele b{font-size:18px;font-weight:800}.tele i{font-size:9px;color:#888;margin-left:3px;font-style:normal}
+.bar{width:90px;height:7px;background:#222;border-radius:4px;margin-top:7px;overflow:hidden}.bar span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#4cc3ff,#eafcff);transition:width .1s}
+#toast{position:absolute;left:0;right:0;top:30%;text-align:center;font-weight:900;font-style:italic;font-size:clamp(20px,4.5vw,46px);letter-spacing:.06em;opacity:0;transition:opacity .25s;text-shadow:0 0 24px rgba(255,40,60,.7)}
+#toast small{display:block;font-size:.38em;letter-spacing:.2em;font-style:normal;color:#e9d39a;margin-top:8px;font-weight:500}
+#pauseBtn{position:absolute;right:max(16px,env(safe-area-inset-right));top:84px;pointer-events:auto;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2)}
+#touch{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end;padding:0 max(14px,env(safe-area-inset-left)) max(14px,env(safe-area-inset-bottom));pointer-events:none}
+.pad{display:flex;gap:10px;pointer-events:auto}.pad.r{flex-wrap:wrap;justify-content:flex-end;max-width:300px}
+.pad button{width:72px;height:72px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(20,20,26,.45);color:#fff;font-size:22px;font-weight:800;backdrop-filter:blur(6px);touch-action:none}
+.pad.r button{font-size:10px;letter-spacing:.08em}.pad button.sm{width:54px;height:54px;font-size:20px}
+.pad button.hot{border-color:#ff2a3a;box-shadow:0 0 16px rgba(255,30,50,.45);background:rgba(255,30,50,.18)}
+.pad button.on{background:rgba(233,211,154,.35);border-color:#e9d39a}
+@media (hover:hover) and (pointer:fine){#touch{display:none!important}}
+h2{font-size:clamp(28px,6vw,60px);font-style:italic;letter-spacing:.1em;color:#e9d39a}
+.rscore{font-size:clamp(40px,9vw,90px);font-weight:900;margin:1vh 0}
+#result p{color:#bbb;max-width:600px;line-height:1.6;margin-bottom:3vh;font-size:15px}
+.row{display:flex;gap:12px}.row button{padding:14px 26px;border-radius:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);color:#fff;font-weight:800;letter-spacing:.15em;cursor:pointer}
+.row button.hot{background:#e9d39a;color:#111;border-color:#e9d39a}
+@media (max-height:500px){.tele{top:auto;bottom:96px;transform:translateX(-50%) scale(.85)}.tele b{font-size:15px}#pauseBtn{top:70px}.logo{font-size:clamp(40px,9vw,90px)}.help{display:none}}
+@media (max-width:700px) and (orientation:portrait){.tele{top:auto;bottom:180px;transform:translateX(-50%) scale(.8)}.levels button{width:80vw}}
